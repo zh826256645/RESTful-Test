@@ -1,0 +1,90 @@
+package com.zhonghao.annotation.param;
+
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map.Entry;
+
+import javax.ws.rs.DefaultValue;
+import javax.ws.rs.GET;
+import javax.ws.rs.MatrixParam;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.MultivaluedMap;
+import javax.ws.rs.core.PathSegment;
+
+import org.apache.log4j.Logger;
+
+@Path("path-resource")
+public class PathResource {
+	private static final Logger LOGGER = Logger.getLogger(PathResource.class);
+	
+	@GET
+	@Path("{user:[a-zA-Z][a-zA-Z_0-9]*}")
+	@Produces(MediaType.TEXT_PLAIN)
+	public String getUserInfo(@PathParam("user") final String user , @DefaultValue("China") @QueryParam("hometown")final String hometown) {
+		return user + ":" + hometown;
+	}
+	
+	@GET
+	@Path("{from:\\d+}-{to:\\d+}")
+	@Produces(MediaType.TEXT_PLAIN)
+	public String getByCondition(@PathParam("from") final Integer form , @PathParam("to") final Integer to) {
+		return "from=" + form + ":to=" +to;
+	}
+	
+	@GET
+	@Path("{beginMonth:\\d+},{beginYear:\\d+}-{endMonth:\\d+},{endYear:\\d+}")
+	@Produces(MediaType.TEXT_PLAIN)
+	public String getByMoreCondition(@PathParam("beginMonth") final Integer beginMonth 
+			, @PathParam("beginYear") final Integer beginYear
+			, @PathParam("endMonth") final Integer endMonth 
+			, @PathParam("endYear") final Integer endYear) {
+		return beginYear + "." + beginMonth + "~" + endYear + "." + endMonth;
+	}
+	
+    /*path-resource/q/restful;program=java;type=web*/
+	@GET
+	@Path("q/{condition}")
+	@Produces(MediaType.TEXT_PLAIN)
+	public String getByCondition3(@PathParam("condition") final PathSegment condition) {
+		final StringBuilder conds = new StringBuilder();
+		conds.append(condition.getPath()).append(" ");
+		final MultivaluedMap<String, String> matrixParameters = condition.getMatrixParameters();
+		final Iterator<Entry<String,List<String>>> iterator = matrixParameters.entrySet().iterator();
+		while(iterator.hasNext()) {
+			final Entry<String,List<String>> entry = iterator.next();
+			conds.append(entry.getKey()).append("=");
+			conds.append(entry.getValue()).append(" ");
+		}
+		return conds.toString();
+	}
+	
+	@GET
+	@Path("q2/{condition}")
+	@Produces(MediaType.TEXT_PLAIN)
+	public String getByCondition4(@PathParam("condition") final PathSegment condition 
+			, @MatrixParam("program") final String program 
+			, @MatrixParam("type") final String type) {
+		return condition.getPath() + " program=[" + program + "] type=[" + type + "] ";
+	}
+	
+	/*http://localhost:9998/path-resource/ZhongHao/China/southern/GuangDong/meizhou/pingyuan*/
+	/*http://localhost:9998/path-resource/China/southern/GuangDong/meizhou/pingyuan*/
+	/*http://localhost:9998/path-resource/southern/GuangDong/meizhou/pingyuan*/
+	@GET
+	@Path("{region:.+}/meizhou/{district:\\w+}")
+	@Produces(MediaType.TEXT_PLAIN)
+	public String getByAddress(@PathParam("region") final List<PathSegment> region , @PathParam("district") final String district) {
+		final StringBuilder result = new StringBuilder();
+		for(final PathSegment pathSegment : region) {
+			result.append(pathSegment.getPath()).append("-");
+		}
+		result.append("meizhou-").append(district);
+		final String r = result.toString();
+		PathResource.LOGGER.debug(r);
+		return r;
+	}
+}
