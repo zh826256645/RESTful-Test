@@ -17,8 +17,16 @@ import org.junit.Test;
 
 import com.zhonghao.annotation.response.json.BookResource_JSON_P;
 
-public class Json_Test_JSON_P extends JerseyTest {
-	private final static Logger LOGGER = Logger.getLogger(Json_Test_JSON_P.class);
+/**
+ * 测试
+ * 使用 JSON-P 解析 JSON
+ * 
+ * @author ZhongHao
+ * Create on 2016年9月5日 下午2:48:52
+ *
+ */
+public class JsonTest_JSON_P extends JerseyTest {
+	private final static Logger LOGGER = Logger.getLogger(JsonTest_JSON_P.class);
 
 	@Override
 	protected Application configure() {

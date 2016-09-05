@@ -53,5 +53,14 @@
 	<classpathentry kind="lib" path="src/guava-17.0.jar"/>
 	<classpathentry kind="lib" path="src/jersey-media-json-processing-2.22.2.jar"/>
 	<classpathentry kind="lib" path="src/jsonp-jaxrs-1.0.jar"/>
+	<classpathentry kind="lib" path="src/jersey-media-json-jackson-2.22.2.jar"/>
+	<classpathentry kind="lib" path="src/jackson-annotations-2.5.4.jar"/>
+	<classpathentry kind="lib" path="src/jackson-core-2.5.4.jar"/>
+	<classpathentry kind="lib" path="src/jackson-databind-2.5.4.jar"/>
+	<classpathentry kind="lib" path="src/jackson-jaxrs-base-2.5.4.jar"/>
+	<classpathentry kind="lib" path="src/jackson-jaxrs-json-provider-2.5.4.jar"/>
+	<classpathentry kind="lib" path="src/jackson-module-jaxb-annotations-2.5.4.jar"/>
+	<classpathentry kind="lib" path="src/jersey-media-json-jettison-2.22.2.jar"/>
+	<classpathentry kind="lib" path="src/jettison-1.3.7.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

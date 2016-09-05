@@ -13,7 +13,14 @@ import com.zhonghao.annotation.domain.Book2;
 import com.zhonghao.annotation.domain.Books;
 import com.zhonghao.annotation.response.json.BookResource_MOXy;
 
-
+/**
+ * 测试
+ * 使用 MOXy 解析 JSON
+ * 
+ * @author ZhongHao
+ * Create on 2016年9月5日 下午2:49:30
+ *
+ */
 public class JsonTest_MOXy extends JerseyTest {
     private final static Logger LOGGER = Logger.getLogger(JsonTest_MOXy.class);
     

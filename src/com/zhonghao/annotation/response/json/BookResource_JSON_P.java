@@ -19,8 +19,16 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import org.apache.log4j.Logger;
-import org.apache.log4j.net.SyslogAppender;
 
+/**
+ * JSON-P
+ * 使用 JSON-P 解析 JSON
+ * 支持: Low-level JSON parsing & processing
+ * 
+ * @author ZhongHao
+ * Create on 2016年9月5日 上午10:44:26
+ *
+ */
 @Path("books-json-p")
 public class BookResource_JSON_P {
 
