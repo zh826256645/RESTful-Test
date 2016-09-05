@@ -11,22 +11,22 @@ import org.junit.Test;
 
 import com.zhonghao.annotation.domain.Book2;
 import com.zhonghao.annotation.domain.Books;
-import com.zhonghao.annotation.response.json.BookResource;
+import com.zhonghao.annotation.response.json.BookResource_MOXy;
 
 
-public class JsonTest extends JerseyTest {
-    private final static Logger LOGGER = Logger.getLogger(JsonTest.class);
+public class JsonTest_MOXy extends JerseyTest {
+    private final static Logger LOGGER = Logger.getLogger(JsonTest_MOXy.class);
     
     @Override
     protected Application configure() {
         enable(TestProperties.LOG_TRAFFIC);
         enable(TestProperties.DUMP_ENTITY);
-        return new ResourceConfig(BookResource.class);
+        return new ResourceConfig(BookResource_MOXy.class);
     }
     
     @Test
     public void testGettingBooks() {
-    	Books books = target("books").request(MediaType.APPLICATION_JSON_TYPE).get(Books.class);
+    	Books books = target("books-moxy").request(MediaType.APPLICATION_JSON_TYPE).get(Books.class);
     	for (Book2 book : books.getBookList()) {
 			LOGGER.debug(book.getBookName());
 		}

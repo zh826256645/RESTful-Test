@@ -51,5 +51,7 @@
 	<classpathentry kind="lib" path="src/slf4j-log4j12-1.4.3.jar"/>
 	<classpathentry kind="lib" path="src/validation-api-1.1.0.Final.jar"/>
 	<classpathentry kind="lib" path="src/guava-17.0.jar"/>
+	<classpathentry kind="lib" path="src/jersey-media-json-processing-2.22.2.jar"/>
+	<classpathentry kind="lib" path="src/jsonp-jaxrs-1.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

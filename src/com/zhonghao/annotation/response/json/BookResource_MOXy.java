@@ -19,11 +19,11 @@ import org.apache.log4j.Logger;
 import com.zhonghao.annotation.domain.Book2;
 import com.zhonghao.annotation.domain.Books;
 
-@Path("books")
+@Path("books-moxy")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces({"application/x-javascript;charset=UTF-8","application/json;charset=UTF-8"})
-public class BookResource {
-	private static final Logger LOGGER = Logger.getLogger(BookResource.class);
+public class BookResource_MOXy {
+	private static final Logger LOGGER = Logger.getLogger(BookResource_MOXy.class);
 	private static final HashMap<Long,Book2> memoryBase;
 	
 	// 初始化 Map 集合
@@ -38,15 +38,15 @@ public class BookResource {
     @GET
     public Books getBooks() {
     	final List<Book2> bookList = new ArrayList<Book2>();
-    	final Set<Map.Entry<Long, Book2>> entries = BookResource.memoryBase.entrySet();
+    	final Set<Map.Entry<Long, Book2>> entries = BookResource_MOXy.memoryBase.entrySet();
     	final Iterator<Entry<Long, Book2>> iterator = entries.iterator();
     	while (iterator.hasNext()) {
     		final Entry<Long, Book2> cursor = iterator.next();
-    		BookResource.LOGGER.debug(cursor.getKey());
+    		BookResource_MOXy.LOGGER.debug(cursor.getKey());
     		bookList.add(cursor.getValue());
     	}
     	final Books books = new Books(bookList);
-    	BookResource.LOGGER.debug(books);
+    	BookResource_MOXy.LOGGER.debug(books);
     	return books;
     }
 }
