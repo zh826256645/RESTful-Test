@@ -15,7 +15,8 @@ import javax.ws.rs.core.UriInfo;
 
 import com.zhonghao.annotation.domain.Book;
 import com.zhonghao.annotation.domain.BookWrapper;
-import com.zhonghao.annotation.exception.Jaxrs2GuideNotFoundException;
+
+import com.zhonghao.exception.Jaxrs2GuideNotFoundException;
 
 /**
  * HEATEOAS

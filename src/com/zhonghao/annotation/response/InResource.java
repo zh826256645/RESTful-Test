@@ -17,7 +17,7 @@ import javax.ws.rs.core.Response;
 
 import org.apache.log4j.Logger;
 
-import com.zhonghao.annotation.exception.Jaxrs2GuideNotFoundException;
+import com.zhonghao.exception.Jaxrs2GuideNotFoundException;
 
 @Path("in-resource")
 public class InResource {
