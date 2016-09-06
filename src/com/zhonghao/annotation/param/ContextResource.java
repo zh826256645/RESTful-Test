@@ -19,6 +19,15 @@ import javax.ws.rs.core.Request;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.ext.Providers;
 
+/**
+ * @Context 
+ * 用来解析上下文参数
+ * 
+ * @author ZhongHao
+ * Create on 2016年9月6日 上午9:50:57
+ *
+ */
+
 @Path("context-resource")
 public class ContextResource {
 
