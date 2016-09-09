@@ -11,6 +11,7 @@ import javax.json.JsonArray;
 import javax.json.JsonArrayBuilder;
 import javax.json.JsonObject;
 import javax.json.JsonObjectBuilder;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -84,6 +85,7 @@ public class BookResource_JSON_P {
 	}
 	
 	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
 	public JsonObject saveBook(final JsonObject book) {
 		long id = System.nanoTime();
 		JsonObjectBuilder jsonObjectBuilder = Json.createObjectBuilder();
