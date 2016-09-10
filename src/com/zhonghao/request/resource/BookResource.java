@@ -17,6 +17,7 @@ import javax.ws.rs.core.MediaType;
 
 import org.apache.log4j.Logger;
 
+import com.zhonghao.request.bing.AirLog;
 import com.zhonghao.request.domian.Book;
 import com.zhonghao.request.domian.Books;
 
@@ -32,6 +33,10 @@ public class BookResource {
 		BookResource.memoryBase.put(2L, new Book(2L, "JSF2和RichFaces4实战", "phei"));
 	}
 
+	// 绑定方法
+	// 该资源方法使用了注解 @AirLog
+	// 请求该方法时，会执行过滤器 AirNamebindingFilter
+	@AirLog
 	@GET
 	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
 	public Books getBooks() {
