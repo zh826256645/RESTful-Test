@@ -1,6 +1,7 @@
 package com.zhonghao.request.domian;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlElement;
@@ -16,7 +17,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "books")
 public class Books implements Serializable {
     private static final long serialVersionUID = -5070487415443208853L;
-    private List<Book> bookList;
+    private List<Book> bookList = new ArrayList<Book>();;
 
     /**
      * <p>Constructor for Books.</p>
