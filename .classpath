@@ -62,5 +62,10 @@
 	<classpathentry kind="lib" path="src/jackson-module-jaxb-annotations-2.5.4.jar"/>
 	<classpathentry kind="lib" path="src/jersey-media-json-jettison-2.22.2.jar"/>
 	<classpathentry kind="lib" path="src/jettison-1.3.7.jar"/>
+	<classpathentry kind="lib" path="src/jersey-media-sse-2.23.2.jar"/>
+	<classpathentry kind="lib" path="src/simple-5.1.4.jar"/>
+	<classpathentry kind="lib" path="src/log4j-api-2.1.jar"/>
+	<classpathentry kind="lib" path="src/log4j-core-2.1.jar"/>
+	<classpathentry kind="lib" path="src/log4j-slf4j-impl-2.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
