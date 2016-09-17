@@ -8,6 +8,7 @@ import org.glassfish.jersey.grizzly.connector.GrizzlyConnectorProvider;
 /**
  * 使用 Gizzly 连接器的客户端
  * 1.内部使用异步处理客户端作为底层的链接
+ * 
  * @author 钟浩
  * Create on 2016年9月17日 下午10:12:26
  *
