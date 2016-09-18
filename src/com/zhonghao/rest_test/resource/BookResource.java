@@ -1,4 +1,4 @@
-package com.zhonghao.client.resource;
+package com.zhonghao.rest_test.resource;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -78,5 +78,14 @@ public class BookResource {
 		BookResource.memoryBase.put(book.getBookId(), book);
 		return book;
 	}
-
+	
+	@Path("/{bookId:[0-9]*}")
+	@DELETE
+	public String deleteBook(@PathParam("bookId") final long bookId) {
+		if (memoryBase.remove(bookId) != null) {
+			return "Deleted book id=" + bookId;
+		} else {
+			return "Deleted book failed id=" + bookId;
+		}
+	}
 }
